@@ -2,6 +2,7 @@ const { Routes } = require('discord-api-types/v9');
 const { REST } = require('@discordjs/rest')
 const { readdirSync } = require('fs');
 const colors = require('colors');
+const { createConnection } = require('mysql');
 
 module.exports = (client) => {
     // # slashCommands
@@ -43,4 +44,13 @@ module.exports = (client) => {
     }
     loadEvents();
     console.log(`•----------•`.bold.black)
+
+    // # database
+    async function databaseSynch() {
+        con.connect(err => {
+            if (err) return console.log(`[DATABASE] : ERROR`.bold.red + " MySQL error.".bold.white);
+            console.log(`[DATABASE]`.green + " MySQL has already synchronized.".bold.white);
+        });
+    }
+    databaseSynch();
 }
