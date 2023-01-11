@@ -13,7 +13,7 @@ execute: async (client) => {
         }).catch(() => {})
     });
 
-    let statuses = ['🎶 | Laska\'s', `${client.guilds.cache.size} guilds`]
+    let statuses = ['👀 | Retour ...']
     setInterval(function() {
         let status = statuses[Math.floor(Math.random()*statuses.length)];
             client.user.setPresence({
