@@ -35,9 +35,10 @@ client.on('ready', async () => {
 
 const { connect } = require('mongoose');
 connect(config.DatabaseURL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    autoIndex: false
+   useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
 }).then(() => console.log(("🚥 | The client is now connected to te database")))
 client.db = require('./model/Guild');
 
